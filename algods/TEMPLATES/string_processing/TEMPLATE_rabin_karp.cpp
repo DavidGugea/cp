@@ -12,7 +12,7 @@ vector<int> rabin_karp(string const& s, string const& t) {
     vector<long long> p_pow(max(S, T));
     p_pow[0] = 1;
     for (int i = 1; i < (int)p_pow.size(); ++i)
-        p_pow[i] = (p_pow[i-1] % p) % m;
+        p_pow[i] = (p_pow[i-1] * p) % m;
 
     vector<long long> h(T+1, 0);
     for (int i = 0; i < T; ++i)
