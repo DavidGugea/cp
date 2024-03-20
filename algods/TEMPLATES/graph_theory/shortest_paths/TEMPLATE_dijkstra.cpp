@@ -5,6 +5,9 @@ using namespace std;
 
 // You are given a directed or undirected weighted graph with n vertices and m edges. The weights of all edges are non-negative. You are also given a starting vertex s. Dijkstra gives you the lengths of the shortest paths from a starting vertex s to all other vertices, and outputs the shortest paths themselves.
 
+/* --------------------------------------------------------------------------------------- CLASSIC DIJKSTRA --------------------------------------------------------------------------------------- */
+
+// O((V+E)log V), V vertices, E edges
 void dijkstra(int s, vector<int>& d, vector<int>& p, vector<vector<pair<int, int>>> adj) {
     // s: starting vertex
     // d: vector that contains the distances from the starting vertex to the rest
@@ -52,3 +55,6 @@ vector<int> restore_path(int s, int t, vector<int> const& p) {
     reverse(path.begin(), path.end());
     return path;
 }
+
+/* --------------------------------------------------------------------------------------- CLASSIC DIJKSTRA --------------------------------------------------------------------------------------- */
+
