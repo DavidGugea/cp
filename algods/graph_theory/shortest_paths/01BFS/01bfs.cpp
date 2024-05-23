@@ -4,7 +4,7 @@ using namespace std;
 void bfs01(int s, vector<int>& d, vector<int>& p, vector<vector<pair<int, int>>> adj) {
     const int INF = 1e9+9;
     int n = adj.size();
-    vector<int> (n, INF);
+    vector<int> d(n, INF);
     deque<int> q;
     q.push_front(s);
     while (!q.empty()) {
