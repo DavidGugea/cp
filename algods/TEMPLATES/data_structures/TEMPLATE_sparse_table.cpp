@@ -27,7 +27,7 @@ int main() {
     // construct the table
     for (int i = 1; i < dpr; ++i)
         for (int j = 0; (j + (1 << i)) <= n; ++j)
-            dp[i][j] = min(dp[i-1][j], dp[i-1][j+1<<(i-1)]);
+            dp[i][j] = min(dp[i-1][j], dp[i-1][j+(1<<(i-1))]);
 
     // answer queries
     int q; cin >> q;
