@@ -14,6 +14,9 @@ int main() {
     cin.tie(0);
 
     // dp[i][j] = f(dp[i-1][j], dp[i-1][j+2^(i-1)])
+    /*
+        (i, j) -> (j, j+2^i) = (j, j+2^(i-1)) + (j+2^(i-1), j+2^i) = [i-1][j] + [i-1][j+2^i-1]
+    */
     // q(l, r) = f(dp[p][l], dp[p][r-k+1]) where p = log2(r-l+1) && k=2^p=(1<<p)
 
     // initialize the first row of the sparse table (original array)
