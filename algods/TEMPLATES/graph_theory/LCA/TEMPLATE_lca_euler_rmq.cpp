@@ -13,10 +13,10 @@ struct LCA {
     int n;
 
     LCA(vector<vector<int>>& adj, int root = 0) {
+        // adj is ADJ LIST
         n = adj.size();
         height.resize(n);
         first.resize(n);
-        euler.reserve(n * 2);
         visited.assign(n, false);
         dfs(adj, root);
 
@@ -62,8 +62,6 @@ struct LCA {
     int query(int a, int b) {
         int l = min(first[a], first[b]);
         int r = max(first[a], first[b]);
-
-        cout << l << " " << r << "\n";
 
         int p = log2_floor(r - l + 1);
         int k = 1<<p;
