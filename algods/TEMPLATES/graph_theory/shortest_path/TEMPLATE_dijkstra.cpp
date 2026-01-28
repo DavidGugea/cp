@@ -8,7 +8,7 @@ using namespace std;
 // Dijkstra adjacency list implementation with priority queue
 // adj: adjacency list | parent : parent mapping to restore shortest paths (optional) | n : no. of vertices | source : source vertex
 // O((V+E)logV)
-vector<int> dijsktraAdjList(unordered_map<int, vector<pair<int, int>>>& adj, vector<int>& parent, int n, int source) {
+vector<int> dijkstraAdjList(unordered_map<int, vector<pair<int, int>>>& adj, vector<int>& parent, int n, int source) {
     const int INF = 1e9;
     vector<int> dist(n, INF);
     parent.assign(n, -1);
@@ -37,7 +37,7 @@ vector<int> dijsktraAdjList(unordered_map<int, vector<pair<int, int>>>& adj, vec
 // Dijkstra adjacency matrix implementation with linear min selection
 // adj: adjacency matrix | parent : parent mapping to restore shortest paths (optional) | n : no. of vertices | source : source vertex
 // O(V^2)
-vector<int> dijsktraAdjMatrix(vector<vector<int>>& adj, vector<int>& parent, int n, int source) {
+vector<int> dijkstraAdjMatrix(vector<vector<int>>& adj, vector<int>& parent, int n, int source) {
     const int INF = 1e9;
     vector<int> dist(n, INF);
     parent.assign(n, -1);
