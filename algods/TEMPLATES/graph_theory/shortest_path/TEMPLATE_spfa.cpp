@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Sparse graph (E << V^2): adj list + priority queue -> O((V+E)logV)
-// Dense graph  (E ~= V^2): adj matrix + linear min selection -> O(V^2)
+// Sparse graph (E << V^2): adj list
+// Dense graph  (E ~= V^2): adj matrix
 // Use adj list for sparse, adj matrix for dense
 
 // SPFA = queue-based Bellman-Ford. Use case: Faster BF for sparse graphs

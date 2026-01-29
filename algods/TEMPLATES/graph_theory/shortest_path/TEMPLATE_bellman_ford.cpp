@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Sparse graph (E << V^2): adj list + priority queue -> O((V+E)logV)
-// Dense graph  (E ~= V^2): adj matrix + linear min selection -> O(V^2)
+// Sparse graph (E << V^2): adj list
+// Dense graph  (E ~= V^2): adj matrix
 // Use adj list for sparse, adj matrix for dense
 
 // Bellman Ford adjacency list
@@ -14,16 +14,19 @@ vector<int> bellmanFordAdjList(unordered_map<int, vector<pair<int, int>>>& adj, 
     parent.assign(n, -1);
     dist[source] = 0;
 
-    for (int i = 0; i <= (n-1); ++i) {
+    for (int i = 0; i < n-1; ++i) {
+        bool changed = false;
         for (int u = 0; u < n; ++u) {
             if (dist[u] == INF) continue;
             for (auto& [v, w] : adj[u]) {
                 if (dist[u] + w < dist[v]) {
                     dist[v] = dist[u] + w;
                     parent[v] = u;
+                    changed = true;
                 }
             }
         }
+        if (!changed) break;
     }
 
     return dist;
@@ -38,16 +41,19 @@ vector<int> bellmanFordAdjMatrix(vector<vector<int>> adj, vector<int>& parent, i
     parent.assign(n, -1);
     dist[source] = 0;
 
-    for (int i = 0; i <= (n-1); ++i) {
+    for (int i = 0; i < n-1; ++i) {
+        bool changed = false;
         for (int u = 0; u < n; ++u) {
             if (dist[u] == INF) continue;
             for (int v = 0; v < n; ++v) {
                 if (adj[u][v] != INF && dist[u] + adj[u][v] < dist[v]) {
                     dist[v] = dist[u] + adj[u][v];
                     parent[v] = u;
+                    changed = true;
                 }
             }
         }
+        if (!changed) break;
     }
 
     return dist;
@@ -62,7 +68,7 @@ vector<int> bellmanFordEdges(vector<vector<int>> edges, vector<int>& parent, int
     parent.assign(n, -1);
     dist[source] = 0;
 
-    for (int i = 1; i < n; ++i) {
+    for (int i = 0; i < n-1; ++i) {
         bool changed = false;
         for (auto& e : edges) {
             int u = e[0], v = e[1], w = e[2];
