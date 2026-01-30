@@ -81,6 +81,8 @@ vector<int> bellmanFordEdges(vector<vector<int>> edges, vector<int>& parent, int
         }
         if (!changed) break;
     }
+
+    return dist;
 }
 
 // Given a path array, restore the shorest path source->target
