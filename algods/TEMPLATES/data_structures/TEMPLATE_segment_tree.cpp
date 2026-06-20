@@ -60,7 +60,7 @@ struct SegmentTree {
     }
 
     long long query(int node, int left, int right, int queryLeft, int queryRight) const {
-        if (queryLeft < left || queryRight > right) return NEUTRAL;
+        if (queryRight < left || right < queryLeft) return 0;
 
         if (queryLeft <= left && right <= queryRight) {
             return tree[node];

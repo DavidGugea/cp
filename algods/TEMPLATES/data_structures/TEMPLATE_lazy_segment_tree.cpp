@@ -84,7 +84,7 @@ struct LazySegmentTree {
     }
 
     long long query(int node, int left, int right, int queryLeft, int queryRight) {
-        if (queryLeft < left || right < queryRight) return 0;
+        if (queryRight < left || right < queryLeft) return 0;
 
         if (queryLeft <= left && right <= queryRight) {
             return tree[node];
