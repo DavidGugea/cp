@@ -63,7 +63,7 @@ struct LazySegmentTree {
     }
 
     void add(int node, int left, int right, int rangeLeft, int rangeRight, long long value) {
-        if (rangeLeft < left || right < rangeRight) return;
+        if (rangeRight < left || right < rangeLeft) return;
 
         if (rangeLeft <= left && right <= rangeRight) {
             apply(node, left, right, value);
