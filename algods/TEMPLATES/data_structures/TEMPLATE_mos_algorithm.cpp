@@ -63,9 +63,9 @@ int main() {
         int r = query.r;
 
         while (cur_l > l) add(--cur_l);
-        while (cur_r < r) add(++cur_l);
+        while (cur_r < r) add(++cur_r);
         while (cur_l < l) remove(cur_l++);
-        while (cur_r > l) remove(cur_r--);
+        while (cur_r > r) remove(cur_r--);
 
         res[query.idx] = current_answer;
     }
